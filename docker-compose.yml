@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  arbuz:
+    image: arbuz
+    build:
+      context: .
+      dockerfile: Arbuz\Dockerfile
