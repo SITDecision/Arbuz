@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Threading.Tasks;
 
 namespace Arbuz.Data.Entities
 {
-    internal class Price
+    public class Price
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

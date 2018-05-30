@@ -2,7 +2,7 @@
 
 namespace Arbuz.Data.Entities
 {
-    internal class Operation
+    public class Operation
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace Arbuz.Data.Entities
 {
-    internal enum ServiceType
+    public enum ServiceType
     {
         Photo,
         Xerox,

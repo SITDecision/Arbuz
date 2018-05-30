@@ -19,6 +19,7 @@ namespace Arbuz.Controllers
         {
             _signInManager = signInManager;
             _logger = logger;
+
         }
 
         [HttpPost]
