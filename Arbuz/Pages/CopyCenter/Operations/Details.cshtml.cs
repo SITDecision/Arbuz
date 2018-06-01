@@ -24,7 +24,7 @@ namespace Arbuz.Pages.Operations
                 return NotFound();
             }
 
-            Operation = await _context.Operations.SingleOrDefaultAsync(m => m.Id == id);
+            Operation = await _context.Operations.Include(o => o.Product).SingleOrDefaultAsync(m => m.Id == id);
 
             if (Operation == null)
             {

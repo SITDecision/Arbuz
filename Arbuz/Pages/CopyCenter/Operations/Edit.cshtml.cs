@@ -1,7 +1,9 @@
 ﻿using Arbuz.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +17,8 @@ namespace Arbuz.Pages.Operations
         {
             _context = context;
         }
+
+        public IEnumerable<SelectListItem> ProductsForSelect { get; set; }
 
         [BindProperty]
         public Operation Operation { get; set; }
@@ -32,6 +36,8 @@ namespace Arbuz.Pages.Operations
             {
                 return NotFound();
             }
+            var products = await _context.Products.ToListAsync();
+            ProductsForSelect = products.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Name });
             return Page();
         }
 

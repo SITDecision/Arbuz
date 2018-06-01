@@ -2,33 +2,39 @@
 @model Arbuz.Pages.Operations.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+  ViewData["Title"] = "Delete";
 }
 
 <h2>Удаление</h2>
 
 <h3>Вы уверены что хотите удалить это?</h3>
 <div>
-    <h4>Operation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Operation.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Operation.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Operation.Quantity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Operation.Quantity)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Operation.Id" />
-        <input type="submit" value="Удалить" class="btn btn-danger" /> |
-        <a asp-page="./Index">Вернуться назад к списку</a>
-    </form>
+  <h4>Операция</h4>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.Operation.Date)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Operation.Date)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Operation.Product.Name)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Operation.Product.Name)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Operation.Quantity)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Operation.Quantity)
+    </dd>
+  </dl>
+
+  <form method="post">
+    <input type="hidden" asp-for="Operation.Id" />
+    <input type="submit" value="Удалить" class="btn btn-danger" /> |
+    <a asp-page="./Index">Вернуться назад к списку</a>
+  </form>
 </div>

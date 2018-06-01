@@ -10,7 +10,7 @@ namespace Arbuz.Data.Entities
         public DateTime Date { get; set; }
 
         public int ProductId { get; set; }
-        [Display(Name = "Вид услуги")]
+        [Display(Name = "Товар/услуга")]
         public Product Product { get; set; }
         [Display(Name = "Цена")]
         public decimal Value { get; set; }

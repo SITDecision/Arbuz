@@ -2,39 +2,47 @@
 @model Arbuz.Pages.Operations.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+  ViewData["Title"] = "Edit";
 }
 
 <h2>Редактирование</h2>
 
-<h4>Operation</h4>
+<h4>Операция</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Operation.Id" />
-            <div class="form-group">
-                <label asp-for="Operation.Date" class="control-label"></label>
-                <input asp-for="Operation.Date" class="form-control" />
-                <span asp-validation-for="Operation.Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Operation.Quantity" class="control-label"></label>
-                <input asp-for="Operation.Quantity" class="form-control" />
-                <span asp-validation-for="Operation.Quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Сохранить" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
+  <div class="col-md-4">
+    <form method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <input type="hidden" asp-for="Operation.Id" />
+      <div class="form-group">
+        <label asp-for="Operation.Date" class="control-label"></label>
+        <input asp-for="Operation.Date" class="form-control" />
+        <span asp-validation-for="Operation.Date" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Operation.Product" class="control-label"></label>
+        <select asp-for="Operation.ProductId" asp-items="@Model.ProductsForSelect"
+                class="form-control">
+          <option selected="selected" value="Operation.ProductId">Выберите тип операции</option>
+        </select>
+        <span asp-validation-for="Operation.ProductId" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Operation.Quantity" class="control-label"></label>
+        <input asp-for="Operation.Quantity" class="form-control" />
+        <span asp-validation-for="Operation.Quantity" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-default" />
+      </div>
+    </form>
+  </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Вернуться назад к списку</a>
+  <a asp-page="./Index">Вернуться назад к списку</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

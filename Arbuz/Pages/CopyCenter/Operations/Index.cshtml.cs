@@ -19,7 +19,7 @@ namespace Arbuz.Pages.Operations
 
         public async Task OnGetAsync()
         {
-            Operation = await _context.Operations.ToListAsync();
+            Operation = await _context.Operations.Include(o => o.Product).ToListAsync();
         }
     }
 }

@@ -2,30 +2,36 @@
 @model Arbuz.Pages.Operations.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+  ViewData["Title"] = "Details";
 }
 
 <h2>Детали</h2>
 
 <div>
-    <h4>Operation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Operation.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Operation.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Operation.Quantity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Operation.Quantity)
-        </dd>
-    </dl>
+  <h4>Операция</h4>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.Operation.Date)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Operation.Date)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Operation.Product.Name)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Operation.Product.Name)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Operation.Quantity)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Operation.Quantity)
+    </dd>
+  </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Operation.Id">Edit</a> |
-    <a asp-page="./Index">Вернуться назад к списку</a>
+  <a asp-page="./Edit" asp-route-id="@Model.Operation.Id">Редактировать</a> |
+  <a asp-page="./Index">Вернуться назад к списку</a>
 </div>
