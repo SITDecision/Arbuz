@@ -2,39 +2,47 @@
 @model Arbuz.Pages.CopyCenter.Prices.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+  ViewData["Title"] = "Edit";
 }
 
 <h2>Редактирование</h2>
 
-<h4>Price</h4>
+<h4>Цена</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Price.Id" />
-            <div class="form-group">
-                <label asp-for="Price.Date" class="control-label"></label>
-                <input asp-for="Price.Date" class="form-control" />
-                <span asp-validation-for="Price.Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price.Value" class="control-label"></label>
-                <input asp-for="Price.Value" class="form-control" />
-                <span asp-validation-for="Price.Value" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Сохранить" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
+  <div class="col-md-4">
+    <form method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <input type="hidden" asp-for="Price.Id" />
+      <div class="form-group">
+        <label asp-for="Price.Date" class="control-label"></label>
+        <input asp-for="Price.Date" class="form-control" />
+        <span asp-validation-for="Price.Date" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Price.Product" class="control-label"></label>
+        <select asp-for="Price.ProductId" asp-items="@Model.ProductsForSelect"
+                class="form-control">
+          <option selected="selected" value="Price.ProductId">Выберите тип операции</option>
+        </select>
+        <span asp-validation-for="Price.ProductId" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Price.Value" class="control-label"></label>
+        <input asp-for="Price.Value" class="form-control" />
+        <span asp-validation-for="Price.Value" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-default" />
+      </div>
+    </form>
+  </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Вернуться назад к списку</a>
+  <a asp-page="./Index">Вернуться назад к списку</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

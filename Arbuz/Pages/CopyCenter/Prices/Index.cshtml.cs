@@ -15,11 +15,11 @@ namespace Arbuz.Pages.CopyCenter.Prices
             _context = context;
         }
 
-        public IList<Price> Price { get;set; }
+        public IList<Price> Price { get; set; }
 
         public async Task OnGetAsync()
         {
-            Price = await _context.Prices.ToListAsync();
+            Price = await _context.Prices.Include(p => p.Product).ToListAsync();
         }
     }
 }

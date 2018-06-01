@@ -2,30 +2,36 @@
 @model Arbuz.Pages.CopyCenter.Prices.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+  ViewData["Title"] = "Details";
 }
 
 <h2>Детали</h2>
 
 <div>
-    <h4>Price</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Price.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Price.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Price.Value)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Price.Value)
-        </dd>
-    </dl>
+  <h4>Цена</h4>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.Price.Date)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Price.Date)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Price.Product.Name)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Price.Product.Name)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.Price.Value)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Price.Value)
+    </dd>
+  </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Price.Id">Edit</a> |
-    <a asp-page="./Index">Вернуться назад к списку</a>
+  <a asp-page="./Edit" asp-route-id="@Model.Price.Id">Редактировать</a> |
+  <a asp-page="./Index">Вернуться назад к списку</a>
 </div>

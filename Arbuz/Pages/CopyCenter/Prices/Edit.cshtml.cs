@@ -1,9 +1,11 @@
-﻿using Arbuz.Data.Entities;
+﻿using System.Collections.Generic;
+using Arbuz.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Arbuz.Pages.CopyCenter.Prices
 {
@@ -15,6 +17,8 @@ namespace Arbuz.Pages.CopyCenter.Prices
         {
             _context = context;
         }
+
+        public IEnumerable<SelectListItem> ProductsForSelect { get; set; }
 
         [BindProperty]
         public Price Price { get; set; }
@@ -32,6 +36,8 @@ namespace Arbuz.Pages.CopyCenter.Prices
             {
                 return NotFound();
             }
+            var products = await _context.Products.ToListAsync();
+            ProductsForSelect = products.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Name });
             return Page();
         }
 

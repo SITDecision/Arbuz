@@ -25,7 +25,7 @@ namespace Arbuz.Pages.CopyCenter.Prices
                 return NotFound();
             }
 
-            Price = await _context.Prices.SingleOrDefaultAsync(m => m.Id == id);
+            Price = await _context.Prices.Include(p => p.Product).SingleOrDefaultAsync(m => m.Id == id);
 
             if (Price == null)
             {
