@@ -1,0 +1,59 @@
+﻿@page
+@model Arbuz.Pages.CopyCenter.Summary.SummaryModel
+@{
+  ViewData["Title"] = "Summary";
+}
+
+<h2>Итоговая</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Дата</th>
+      @foreach (var modelItem in Model.OperationInfoGroupedByDateAndProduct)
+      {
+        <th>
+          @Html.DisplayFor(item => modelItem.Date)
+        </th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>Товар/Услуга</td>
+      @foreach (var modelItem in Model.OperationInfoGroupedByDateAndProduct)
+      {
+        <td>
+          @Html.DisplayFor(item => modelItem.ProductName)
+        </td>
+      }
+    </tr>
+    <tr>
+      <td>Количество</td>
+      @foreach (var modelItem in Model.OperationInfoGroupedByDateAndProduct)
+      {
+        <td>
+          @Html.DisplayFor(item => modelItem.Quantity)
+        </td>
+      }
+    </tr>
+    <tr>
+      <td>Цена</td>
+      @foreach (var modelItem in Model.OperationInfoGroupedByDateAndProduct)
+      {
+        <td>
+          @Html.DisplayFor(item => modelItem.Price)
+        </td>
+      }
+    </tr>
+    <tr>
+      <td>Сумма</td>
+      @foreach (var modelItem in Model.OperationInfoGroupedByDateAndProduct)
+      {
+        <td>
+          @Html.DisplayFor(item => modelItem.Sum)
+        </td>
+      }
+    </tr>
+  </tbody>
+</table>
